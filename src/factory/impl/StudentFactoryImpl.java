@@ -1,11 +1,12 @@
-package factory;
+package factory.impl;
 
+import factory.StudentFactory;
 import models.*;
 import services.impl.CollageStudentDataService;
 import services.impl.SchoolStudentDataService;
-import services.impl.StudentDataExecute;
+import factory.impl.StudentDataExecute;
 
-public class StudentFactoryImpl implements StudentFactory{
+public class StudentFactoryImpl implements StudentFactory {
     // take an instance of Student abstract class
   private Student student;
   private final StudentDataExecute studentDataExecute;

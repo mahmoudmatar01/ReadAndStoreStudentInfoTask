@@ -1,7 +1,7 @@
 import exception.GlobalExceptionHandler;
 import factory.StudentFactory;
-import factory.StudentFactoryImpl;
-import models.Student;
+import factory.impl.StudentFactoryImpl;
+
 import java.util.List;
 
 public class Main {
