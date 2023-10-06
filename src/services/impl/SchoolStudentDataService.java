@@ -1,10 +1,13 @@
-package models;
+package services.impl;
 
-public class SchoolStudentDataOperation  implements StudentDataOperations{
+import models.SchoolStudent;
+import services.StudentDataService;
 
-    private final   SchoolStudent student;
+public class SchoolStudentDataService implements StudentDataService {
 
-    public SchoolStudentDataOperation(SchoolStudent student) {
+    private final SchoolStudent student;
+
+    public SchoolStudentDataService(SchoolStudent student) {
         this.student = student;
     }
 

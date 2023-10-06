@@ -1,9 +1,12 @@
-package models;
+package services.impl;
 
-public class CollageStudentDataOperation implements StudentDataOperations{
+import models.CollageStudent;
+import services.StudentDataService;
+
+public class CollageStudentDataService implements StudentDataService {
     private final CollageStudent student;
 
-    public CollageStudentDataOperation(CollageStudent student) {
+    public CollageStudentDataService(CollageStudent student) {
         this.student = student;
     }
 

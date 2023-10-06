@@ -1,11 +1,14 @@
 package factory;
 
 import models.*;
+import services.impl.CollageStudentDataService;
+import services.impl.SchoolStudentDataService;
+import services.impl.StudentDataExecute;
 
 public class StudentFactoryImpl implements StudentFactory{
     // take an instance of Student abstract class
   private Student student;
-  private StudentDataExecute studentDataExecute;
+  private final StudentDataExecute studentDataExecute;
 
   public StudentFactoryImpl(){
       studentDataExecute=new StudentDataExecute();
@@ -18,14 +21,14 @@ public class StudentFactoryImpl implements StudentFactory{
         if (parts.length >= 5) {
             if (parts.length == 7) {
                 student=new CollageStudent();
-                studentDataExecute.readData(studentInfoString,new CollageStudentDataOperation((CollageStudent) student));
-                studentDataExecute.printData(new CollageStudentDataOperation((CollageStudent) student));
+                studentDataExecute.readData(studentInfoString,new CollageStudentDataService((CollageStudent) student));
+                studentDataExecute.printData(new CollageStudentDataService((CollageStudent) student));
 
                 return student;
             } else if (parts.length == 5) {
                 student = new SchoolStudent();
-                studentDataExecute.readData(studentInfoString,new SchoolStudentDataOperation((SchoolStudent) student));
-                studentDataExecute.printData(new SchoolStudentDataOperation((SchoolStudent) student));
+                studentDataExecute.readData(studentInfoString,new SchoolStudentDataService((SchoolStudent) student));
+                studentDataExecute.printData(new SchoolStudentDataService((SchoolStudent) student));
 
                 return student;
             }

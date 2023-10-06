@@ -1,6 +1,6 @@
-package models;
+package services;
 
-public interface StudentDataOperations {
+public interface StudentDataService {
     void readData(String studentInfoString) ;
     void printData() ;
 }
