@@ -1,13 +1,11 @@
 package factory;
 
-import models.CollageStudent;
-import models.SchoolStudent;
-import models.Student;
+import models.*;
 
 public class StudentFactoryImpl implements StudentFactory{
-
     // take an instance of Student abstract class
   private Student student;
+  private StudentDataOperations studentDataOperations;
     @Override
     public Student createStudent(String studentInfoString) {
 
@@ -15,14 +13,18 @@ public class StudentFactoryImpl implements StudentFactory{
         String[] parts = studentInfoString.split("\"");
         if (parts.length >= 5) {
             if (parts.length == 7) {
-                student = new CollageStudent();
-                student.readData(studentInfoString);
-                student.printData();
+
+                student=new CollageStudent();
+                studentDataOperations= new CollageStudentDataOperation((CollageStudent) student);
+                studentDataOperations.readData(studentInfoString);
+                studentDataOperations.printData();
+
                 return student;
             } else if (parts.length == 5) {
                 student = new SchoolStudent();
-                student.readData(studentInfoString);
-                student.printData();
+                studentDataOperations= new SchoolStudentDataOperation((SchoolStudent) student);
+                studentDataOperations.readData(studentInfoString);
+                studentDataOperations.printData();
                 return student;
             }
         }

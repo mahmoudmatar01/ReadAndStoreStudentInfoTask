@@ -1,11 +1,25 @@
 package models;
 
 public class CollageStudent extends Student {
-
     public CollageStudent() {}
-
     private String university;
     private String level;
+
+    public String getUniversity() {
+        return university;
+    }
+
+    public void setUniversity(String university) {
+        this.university = university;
+    }
+
+    public String getLevel() {
+        return level;
+    }
+
+    public void setLevel(String level) {
+        this.level = level;
+    }
 
     @Override
     public void readData(String studentInfoString) {
@@ -29,26 +43,9 @@ public class CollageStudent extends Student {
         System.out.println("Name: " + getName());
         System.out.println("Address: " + getAddress());
         System.out.println("Phone: " + getPhone());
-        System.out.println("University: " + getUniversity());
-        System.out.println("Level: " + getLevel());
+        System.out.println("University: " +getUniversity());
+        System.out.println("Level: " +getLevel());
         System.out.println("Age: " + getAge());
         System.out.println("=============================================");
     }
-
-    public String getUniversity() {
-        return university;
-    }
-
-    public void setUniversity(String university) {
-        this.university = university;
-    }
-
-    public String getLevel() {
-        return level;
-    }
-
-    public void setLevel(String level) {
-        this.level = level;
-    }
-
 }

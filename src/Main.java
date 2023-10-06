@@ -22,7 +22,7 @@ public class Main {
         );
 
         for(String studentInfo : studentsInformation){
-            Student student1 = studentFactory.createStudent(studentInfo);
+          studentFactory.createStudent(studentInfo);
         }
 
     }

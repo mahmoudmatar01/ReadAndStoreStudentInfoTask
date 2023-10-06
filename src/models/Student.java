@@ -4,7 +4,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 
-public abstract class Student {
+public abstract class Student  {
     private String name;
     private String address;
     private Long id;
@@ -65,5 +65,3 @@ public abstract class Student {
 
 }
 
-//name add id phone age
-//                       university level
