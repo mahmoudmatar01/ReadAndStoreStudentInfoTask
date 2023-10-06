@@ -11,10 +11,6 @@ public abstract class Student  {
     private String phone;
     private double age;
 
-    public abstract void readData(String studentInfoString);
-
-    public abstract void printData();
-
     public String getName() {
         return name;
     }
