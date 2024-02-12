@@ -3,11 +3,20 @@ package models;
 public class SchoolStudent extends Student{
     @Override
     public void printStudentData() {
-        System.out.println("School student id: " + getId());
-        System.out.println("School student name: " + getName());
-        System.out.println("School student address: " + getAddress());
-        System.out.println("School student phone: " + getPhone());
-        System.out.println("School student age: " + getAge());
-        System.out.println("=============================================");
+        super.printStudentData();
+    }
+
+    @Override
+    public void readStudentData(String studentInfoString) {
+        String[] parts = studentInfoString.split("\"");
+        try {
+            setId(Long.parseLong(parts[0]));
+            setName(parts[1]);
+            setAddress(parts[2]);
+            setPhone(parts[3]);
+            setAge(Integer.parseInt(parts[4]));
+        } catch (Exception e) {
+            throw new IllegalArgumentException("Invalid data format");
+        }
     }
 }

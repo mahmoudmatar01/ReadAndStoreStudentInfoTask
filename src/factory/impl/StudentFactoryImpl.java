@@ -2,35 +2,28 @@ package factory.impl;
 
 import factory.StudentFactory;
 import models.*;
+import services.StudentDataService;
 import services.impl.CollageStudentDataService;
 import services.impl.SchoolStudentDataService;
+
 public class StudentFactoryImpl implements StudentFactory {
-    private final StudentDataExecute studentDataExecute;
-
-  public StudentFactoryImpl(){
-      studentDataExecute=new StudentDataExecute();
-  }
     @Override
-    public Student createStudent(String studentInfoString) {
-        // make factory decided which student class I will use
-        String[] parts = studentInfoString.split("\"");
-        if (parts.length >= 5) {
-            // take an instance of Student abstract class
-            Student student;
+    public void createStudent(String studentInfoString) {
+        try {
+            StudentDataService studentDataService;
+            String[] parts = studentInfoString.split("\"");
             if (parts.length == 7) {
-                student =new CollageStudent();
-                studentDataExecute.readData(studentInfoString,new CollageStudentDataService((CollageStudent) student));
-                studentDataExecute.printData(new CollageStudentDataService((CollageStudent) student));
-                return student;
+                studentDataService = new CollageStudentDataService();
             } else if (parts.length == 5) {
-                student = new SchoolStudent();
-                studentDataExecute.readData(studentInfoString,new SchoolStudentDataService((SchoolStudent) student));
-                studentDataExecute.printData(new SchoolStudentDataService((SchoolStudent) student));
-
-                return student;
+                studentDataService = new SchoolStudentDataService();
+            } else {
+                throw new IllegalArgumentException("Invalid Data");
             }
+            studentDataService.readData(studentInfoString);
+            studentDataService.printData();
+        } catch (Exception e) {
+            // Handle the exception (print or log) and continue with the next student information
+            System.out.println("Error creating student: " + e.getMessage());
         }
-
-        throw new IllegalArgumentException("Invalid Data");
     }
 }
