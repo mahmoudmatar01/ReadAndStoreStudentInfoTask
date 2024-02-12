@@ -28,13 +28,6 @@ public class CollageStudentDataService implements StudentDataService {
 
     @Override
     public void printData() {
-        System.out.println("ID: " +  student.getId());
-        System.out.println("Name: " +   student.getName());
-        System.out.println("Address: " +   student.getAddress());
-        System.out.println("Phone: " +   student.getPhone());
-        System.out.println("University: " +  student.getUniversity());
-        System.out.println("Level: " +  student.getLevel());
-        System.out.println("Age: " +   student.getAge());
-        System.out.println("=============================================");
+        student.printStudentData();
     }
 }

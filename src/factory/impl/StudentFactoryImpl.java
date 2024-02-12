@@ -4,27 +4,23 @@ import factory.StudentFactory;
 import models.*;
 import services.impl.CollageStudentDataService;
 import services.impl.SchoolStudentDataService;
-import factory.impl.StudentDataExecute;
-
 public class StudentFactoryImpl implements StudentFactory {
-    // take an instance of Student abstract class
-  private Student student;
-  private final StudentDataExecute studentDataExecute;
+    private final StudentDataExecute studentDataExecute;
 
   public StudentFactoryImpl(){
       studentDataExecute=new StudentDataExecute();
   }
     @Override
     public Student createStudent(String studentInfoString) {
-
         // make factory decided which student class I will use
         String[] parts = studentInfoString.split("\"");
         if (parts.length >= 5) {
+            // take an instance of Student abstract class
+            Student student;
             if (parts.length == 7) {
-                student=new CollageStudent();
+                student =new CollageStudent();
                 studentDataExecute.readData(studentInfoString,new CollageStudentDataService((CollageStudent) student));
                 studentDataExecute.printData(new CollageStudentDataService((CollageStudent) student));
-
                 return student;
             } else if (parts.length == 5) {
                 student = new SchoolStudent();

@@ -1,7 +1,6 @@
 package models;
 
 public class CollageStudent extends Student {
-    public CollageStudent() {}
     private String university;
     private String level;
 
@@ -21,4 +20,15 @@ public class CollageStudent extends Student {
         this.level = level;
     }
 
+    @Override
+    public void printStudentData() {
+        System.out.println("College student id: " + getId());
+        System.out.println("College student name: " + getName());
+        System.out.println("College student address: " + getAddress());
+        System.out.println("College student phone: " + getPhone());
+        System.out.println("College student university: " + getUniversity());
+        System.out.println("College student level: " + getLevel());
+        System.out.println("College student age: " + getAge());
+        System.out.println("=============================================");
+    }
 }
